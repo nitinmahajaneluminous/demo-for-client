@@ -24,20 +24,6 @@ class DashboardController extends Controller
     */
         public function index()
         {
-            // dump('mail testing');
-            
-            // $graph = new Graph();
-            // $tenantId = 'accounts@premiumcarparks.co.uk';
-            // $graph->setAccessToken(getMsGraphToken());
-
-            // $message = $this->createEmail("Sent from the SendMail test - shesh");
-            // $body = array("message" => $message);
-            
-            // $done = $graph->createRequest("POST", "/users/".$tenantId."/sendmail")
-            //             ->attachBody($body)
-            //             ->execute();
-
-            // dd('pass', $done);
 
             if (!Session::has('globalState')) 
             {
@@ -65,7 +51,7 @@ class DashboardController extends Controller
             
             // sender
             $emailAddress = new GraphModel\EmailAddress();
-            $emailAddress->setAddress('sheshkumarprjpt@gmail.com');
+            $emailAddress->setAddress(config('constants.email'));
 
             // reciever
             $recipient = new GraphModel\Recipient();
